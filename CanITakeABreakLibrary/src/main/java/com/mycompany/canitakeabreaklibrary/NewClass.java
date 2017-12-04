@@ -15,8 +15,8 @@ public class NewClass {
         return false;
     }
 
-    boolean ShouldIBeAtWorkNow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    boolean shouldIBeAtWorkAtThisTime(int hour, int peakStart, int peakEnd) {
+        return (hour > peakStart) && (hour < peakEnd);
     }
 
     /**
@@ -25,6 +25,14 @@ public class NewClass {
      * @return true or false
      */
     boolean ShouldIGotoWorkToday(int day, int weekStart, int weekEnd) {
-        return (day > weekStart) || (day < weekEnd);
+        return (day > weekStart) && (day < weekEnd);
+    }
+
+    int bestLocationForPopup(int[] in) {
+        int a = 0;
+        for (int i = 0; i<in.length;++i){
+            a = in[i]>a?a=in[i]:a;
+        }
+        return a;
     }
 }
