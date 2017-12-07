@@ -5,6 +5,9 @@
  */
 package com.mycompany.canitakeabreaklibrary;
 
+import java.util.ArrayList;
+import java.util.stream.IntStream;
+
 /**
  *
  * @author janitha
@@ -34,5 +37,17 @@ public class NewClass {
             a = in[i]>a?a=in[i]:a;
         }
         return a;
+    }
+
+    int [] getPeakIndices(int[] ts, int threshold) {
+        int [] ret;
+        ret = IntStream.range(0, ts.length).filter(i -> ts[i] >= threshold).toArray();
+//        IntStream
+//        for (int i = 0; i< ts.length; ++i){
+//            if (ts[i] > threshold){//how do you get to the last value otherwise
+//                ret.add(i);
+//            }
+//        }
+        return ret;
     }
 }

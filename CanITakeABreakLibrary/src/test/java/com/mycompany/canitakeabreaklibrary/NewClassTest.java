@@ -5,9 +5,12 @@
  */
 package com.mycompany.canitakeabreaklibrary;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.OptionalDouble;
 import java.util.TimeZone;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -87,5 +90,22 @@ public class NewClassTest {
         result = instance.ShouldIGotoWorkToday(1, 2, 6);
         assertEquals(false, result);
     }
-
+/**    
+* I want to know what the times are a frequency distribution?
+* At a given location I could have 1 or 2 peaks or maybe 3. If you have a series
+* pick a threshold know what the bracketing values are. you can use a 2 D array
+* you have times series of data
+* 
+* 
+*/
+    @Test
+    public void testWhenIsThereAPeak(){
+        int [] ts = {73, 74, 75, 71, 69, 72, 76, 73};
+        Double avg = (Arrays.stream(ts).average().getAsDouble());
+        NewClass instance = new NewClass();
+        int [] results = instance.getPeakIndices(ts, avg.intValue());
+        assertEquals(72, avg.intValue());
+        assertEquals(6, results.length);
+        assertEquals(5, results[3]);//index
+    }
 }
